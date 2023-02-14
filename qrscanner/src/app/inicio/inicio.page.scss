@@ -1,0 +1,47 @@
+.logo{
+    --ion-background-color: rgb(0, 0, 0);
+}
+
+ion-content{
+    --ion-background-color: rgb(0, 0, 0);
+}
+
+.toolbarlogo{
+    --background: rgba(255, 184, 0, 1);
+}
+
+.col1 {
+    border: solid 3px rgb(255, 255, 255);
+}
+
+ion-list{
+    background-color: white;
+}
+
+ion-input{
+    background-color: white;
+}
+
+ion-select{
+    background-color: white;
+}
+
+.background-item{
+    --ion-background-color: white;
+}
+
+#title{
+    padding-bottom: 15px;
+}
+
+
+
+ion-row{
+    justify-content: center;
+    align-items: center;
+  }
+
+#buscadorbtn{
+    margin-top: 5px;
+}
+  

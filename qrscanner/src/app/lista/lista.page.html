@@ -1,0 +1,76 @@
+
+<ion-card align="center"> 
+  <ion-grid>
+    <ion-row *ngFor="let asistencia of asistencias">
+  
+      <ion-col size="5">
+      
+        <ion-label>{{asistencia.fecha}}</ion-label>
+      </ion-col>
+
+      <ion-col>
+        
+        <ion-label>{{asistencia.curso}}</ion-label>
+      </ion-col>
+   
+      <ion-col>
+     
+        <ion-label >{{asistencia.nombre_alumno}}</ion-label>
+      </ion-col>
+    <ion-col>
+      <ion-buttons>
+        <ion-button (click)="onClickDelete(asistencia)"><ion-icon name="trash"></ion-icon></ion-button>
+      </ion-buttons>
+      
+    </ion-col> 
+    </ion-row>
+  </ion-grid>
+
+
+  <ion-button color="warning" [routerLink]="['/asistencia']">Volver</ion-button>
+</ion-card>
+
+<ion-content align="center">
+  <ion-title>Buscar por nombre</ion-title>
+  <form [formGroup]="formularioBusqueda">
+  <ion-list >
+    <ion-item >
+      <ion-select placeholder="¿como quieres buscar?" formControlName="parametro">
+        <ion-select-option value="nombre_alumno">nombre</ion-select-option>
+        <ion-select-option value="curso">curso</ion-select-option>
+        <ion-select-option value="fecha">fecha</ion-select-option>
+      </ion-select>
+     <ion-input formControlName="valor" placeholder="buscar"></ion-input>
+    </ion-item>
+  </ion-list>
+
+</form>
+<ion-button (click)="ingresarBusqueda()">Buscar</ion-button>
+<ion-card >
+
+  <ion-grid>
+    <ion-row class="row header">
+      <ion-col class="col1">nombre</ion-col>
+      <ion-col class="col1">fecha</ion-col>
+      <ion-col class="col1">curso</ion-col>
+    </ion-row>
+    <ion-row *ngFor="let translation of arreglo_datos">
+      <ion-col class="col">
+        <ion-label>{{translation.nombre_alumno}}</ion-label> -
+      </ion-col >
+      <ion-col class="col">
+        <ion-label>{{translation.fecha}}</ion-label> -
+      </ion-col >
+      <ion-col class="col">
+        <ion-label>{{translation.curso}}</ion-label> 
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+
+
+
+
+</ion-card>
+</ion-content>
+

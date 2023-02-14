@@ -1,0 +1,113 @@
+<ion-header>
+  <ion-toolbar color="warning">
+    <ion-title align="center">RegistrApp</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content align="center">
+  <div class="ion-padding">
+    <ion-title class="ion-text-center">
+      Tus alumnos deben <br />escanear el código QR
+    </ion-title>
+    <form [formGroup]="formularioFecha">
+      <br />
+      <ion-item class="generador-container">
+        <div class="center-button">
+          <ion-button (click)="fecha2()"
+            >Generar código con la fecha actual</ion-button
+          >
+        </div>
+        <!--<ion-datetime formControlName="fecha" [(ngModel)]="qrdata"></ion-datetime>-->
+      </ion-item>
+    </form>
+  </div>
+
+  <ion-card align="center">
+    <qrcode
+      [qrdata]="qrdata"
+      [width]="200"
+      [errorCorrectionLevel]="'M'"
+    ></qrcode>
+  </ion-card>
+
+  <ion-button
+    expand="block"
+    class="btn"
+    color="danger"
+    [routerLink]="['/tabs-padre/tabs/tab1']"
+    >Scanner</ion-button
+  >
+  <ion-button expand="block" color="warning" [routerLink]="['/lista']"
+    >lista</ion-button>
+</ion-content>
+
+<ion-content align="center">
+
+  <ion-title size="large" id="title" color="light">Buscador</ion-title>
+
+  <form [formGroup]="formularioBusqueda">
+    
+    <ion-list>
+      <ion-item class="background-item">
+        <ion-select id="selector"
+          [(ngModel)]="condi"
+          placeholder="Tipo busqueda"
+          formControlName="parametro"
+        >
+          <ion-select-option  value="curso">curso</ion-select-option>
+          <ion-select-option value="fecha">fecha</ion-select-option>
+          <ion-select-option value="nombre_alumno">nombre</ion-select-option>
+        </ion-select>
+        &nbsp;&nbsp;&nbsp;
+        <ion-input
+          formControlName="valor"
+          placeholder="Buscar"
+          *ngIf="!(condi === 'fecha')"
+        ></ion-input>
+
+        <ion-accordion-group *ngIf="condi === 'fecha'">
+          <ion-accordion value="first">
+            <ion-item slot="header" color="dark">
+             <ion-label *ngIf="this.formularioBusqueda.value.valor === '' ; else prueba">Ingresar Fecha</ion-label> 
+        
+            <ng-template #prueba>
+              <ion-label color="light">{{this.formularioBusqueda.value.valor| date: 'dd-MMM-yyyy'}}</ion-label>
+            </ng-template>
+            
+            </ion-item>
+            <div class="ion-padding" slot="content">
+              <ion-datetime
+                formControlName="valor"
+                locale="es-ES"
+              ></ion-datetime>
+            </div>
+          </ion-accordion>
+        </ion-accordion-group>
+      </ion-item>
+    </ion-list>
+  </form>
+<ion-button id="buscadorbtn" (click)="ingresarBusqueda()" color="warning">Buscar</ion-button>
+<ion-card>
+  <ion-grid>
+    <ion-row class="row header">
+      <ion-col class="col1"><ion-label color="light">Nombre</ion-label></ion-col>
+      <ion-col color="light" class="col1"><ion-label color="light" >Fecha</ion-label></ion-col>
+      <ion-col color="light" class="col1"><ion-label color="light">Curso</ion-label></ion-col>
+    </ion-row>
+    <ion-row *ngFor="let dato of arreglo_datos">
+      <ion-col class="col">
+        <ion-label color="light">{{dato.nombre_alumno}}</ion-label>
+      </ion-col>
+      <ion-col class="col" size="6">
+        <ion-label color="light">{{dato.fecha}}</ion-label>
+      </ion-col>
+      <ion-col class="col">
+        <ion-label color="light">{{dato.curso}}</ion-label>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-card>
+</ion-content>
+
+
+<!-- Búsqueda alumno por rut o  nombre-->

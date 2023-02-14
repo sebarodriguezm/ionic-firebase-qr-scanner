@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar color="warning">
+    <ion-title>Login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content align="center">
+  <ion-img
+    style="width: 100%; height: 30%"
+    src="/assets/logoduoc.jpg"
+  ></ion-img>
+  <ion-card>
+    <ion-card-header>
+      <ion-title color="light">Ingresa tus datos</ion-title>
+    </ion-card-header>
+    <ion-card-content>
+      <form [formGroup]="formularioLogin">
+        <ion-item>
+          <ion-label color="light" position="floating" align="center">Email</ion-label>
+          <ion-input  formControlName="email" type="email"></ion-input>
+          <ion-note slot="error" *ngIf="(email?.dirty || email?.touched) && email?.errors">Email inválido</ion-note>
+        </ion-item>
+        <ion-item>
+          <ion-label color="light" position="floating" align="center">contraseña</ion-label>
+          <ion-input formControlName="password" type="text"></ion-input>
+          <ion-note slot="error" *ngIf="(password?.dirty || password?.touched) && password?.errors">Contraseña debe tener un largo mínimo de 6</ion-note>
+        </ion-item>
+      </form>
+    </ion-card-content>
+  </ion-card>
+  <ion-button color="primary" (click)="login()">Aceptar</ion-button>
+  <ion-button color="warning" [routerLink]="['/inicio']">Ir a inicio</ion-button>
+</ion-content>

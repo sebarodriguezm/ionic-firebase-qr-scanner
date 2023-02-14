@@ -1,0 +1,40 @@
+<ion-header align="center">
+    <ion-toolbar color="warning">
+        <ion-title Align="center">Ingresa los datos y escanea<br> el código QR</ion-title>
+    </ion-toolbar>
+
+</ion-header>
+
+<ion-content [fullscreen]="true" [style.--background]="scanActive?'#00000000':'#ffffff'">
+   
+    <ion-row class="scan-button" [hidden]="!scanActive">
+        <ion-col class="ion-no-padding">
+            <ion-button expand="full" (click)="stopScanner()">Stop</ion-button>
+        </ion-col>
+    </ion-row>
+    <div class="scan-box" [hidden]="!scanActive"></div>
+</ion-content>
+
+
+
+<ion-footer align="center">
+    <ion-toolbar color="medium">
+        <form [formGroup]="formularioAsis" >
+            <ion-item class="col1">
+              <ion-label position="floating" align="center">Curso</ion-label>
+              <ion-input  formControlName="curso" type="text">
+              </ion-input>
+            </ion-item>
+
+            <ion-item class="col1">
+                <ion-label position="floating" align="center">Nombre alumno</ion-label>
+                <ion-input  formControlName="nombre_alumno" type="text">
+                </ion-input>
+              </ion-item>
+        </form>
+        <ion-button expand="full" color="warning" (click)="startScanner()" [hidden]="scanActive">
+            SCAN
+        </ion-button>
+        <ion-button color="warning" [routerLink]="['/asistencia']">Volver</ion-button>
+    </ion-toolbar>
+</ion-footer>
