@@ -1,22 +1,18 @@
 <ion-header>
-  <ion-toolbar color="warning">
-    <ion-title align="center">RegistrApp</ion-title>
-  </ion-toolbar>
+  <div id="header">
+      <ion-title align="center">RegistrApp</ion-title>
+  </div>
 </ion-header>
 
-<ion-content align="center">
-  <div class="ion-padding">
-    <ion-title class="ion-text-center">
-      Tus alumnos deben <br />escanear el código QR
-    </ion-title>
+<ion-content >
+  <div >
+   
     <form [formGroup]="formularioFecha">
-      <br />
-      <ion-item class="generador-container">
-        <div class="center-button">
-          <ion-button (click)="fecha2()"
-            >Generar código con la fecha actual</ion-button
-          >
-        </div>
+      
+      <ion-item  >
+        
+          <ion-button id="btn-gen" color="warning" (click)="fecha2()">Generar código con la fecha actual</ion-button>
+     
         <!--<ion-datetime formControlName="fecha" [(ngModel)]="qrdata"></ion-datetime>-->
       </ion-item>
     </form>
@@ -31,17 +27,14 @@
   </ion-card>
 
   <ion-button
+    id="btn-scan"
     expand="block"
-    class="btn"
-    color="danger"
     [routerLink]="['/tabs-padre/tabs/tab1']"
     >Scanner</ion-button
   >
   <ion-button expand="block" color="warning" [routerLink]="['/lista']"
     >lista</ion-button>
-</ion-content>
 
-<ion-content align="center">
 
   <ion-title size="large" id="title" color="light">Buscador</ion-title>
 
