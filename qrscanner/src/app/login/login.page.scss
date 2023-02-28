@@ -9,6 +9,9 @@ ion-content{
         flex-direction: column;
         color: antiquewhite;
         padding: 20px;
+        text-align: center;
+        
+        
     
 
         #app-bar{
@@ -16,6 +19,7 @@ ion-content{
             display: flex;
             justify-content: space-between;
             align-items: center;
+            padding-top: 25px;
 
             ion-icon{
                 font-size: 4px;
@@ -32,6 +36,7 @@ ion-content{
                 border-radius: 10px;
                 margin: 0 auto;
                 
+                
                 img{
                     width: 70%;
                 }
@@ -41,6 +46,7 @@ ion-content{
         h1{
             font-size: 25px;
             margin-bottom: 5px;
+            margin-top: 15px;
         }
 
         p {
@@ -53,12 +59,14 @@ ion-content{
         top: 26%;
         left: 4%;
         right: 4%;
+        padding-top: 25px;
 
         .form-wrapper{
             box-shadow: none;
             border-radius: 20px;
             padding: 15px 10px;
             background-color: white;
+            
 
 
             ion-item{

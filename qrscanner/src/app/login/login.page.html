@@ -1,5 +1,7 @@
 <ion-content>
+
   <div id="header">
+    <h1>Registrapp</h1>
     <div id="app-bar">
       <ion-icon name="arrow-back" routerLink="/inicio"></ion-icon>
       <div id="logo">
@@ -7,7 +9,7 @@
       </div>
       <div></div>
     </div>
-    <h1>Logueate</h1>
+    <h1>Login</h1>
     <p>Ingresa tus datos</p>
   </div>
 
@@ -28,7 +30,7 @@
             <ion-note slot="error" *ngIf="(password?.dirty || password?.touched) && password?.errors">Contraseña debe tener un largo mínimo de 6</ion-note>
           </ion-item>
         </form>
-        <ion-button color="dark" expand="block" (click)="login()">Logueate</ion-button>
+        <ion-button color="dark" expand="block" (click)="login()">Aceptar</ion-button>
       </ion-card-content>
     </ion-card>
     <ion-button color="warning" expand="block" [routerLink]="['/inicio']">Ir a inicio</ion-button>

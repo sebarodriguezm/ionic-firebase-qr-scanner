@@ -1,3 +1,87 @@
+<ion-content>
+  <div id="header">
+    <h1>Registrapp</h1>
+    <div id="app-bar">
+      <ion-icon name="arrow-back" routerLink="/inicio"></ion-icon>
+      <div id="logo">
+        <img src="assets/registro.png" alt="">
+      </div>
+      <div></div>
+    </div>
+    <h1>Registro</h1>
+    <p>Ingresa tus datos y crea tu cuenta</p>
+  </div>
+
+  <div class="wrapper">
+    <ion-card class="form-wrapper">
+      <ion-card-content>
+        <form [formGroup]="formularioRegistro">
+          <ion-item>
+            <ion-label color="dark" position="floating" align="center">Email</ion-label>
+            <ion-input  formControlName="email" type="email"></ion-input>
+            <ion-note slot="error" *ngIf="(email?.dirty || email?.touched) && email?.errors">Email inválido</ion-note>
+          </ion-item>
+          <ion-item>
+            <ion-label color="dark" position="floating" align="center">contraseña</ion-label>
+            <ion-input formControlName="password" type="text"></ion-input>
+            <ion-note slot="error" *ngIf="(password?.dirty || password?.touched) && password?.errors">Contraseña debe tener un largo mínimo de 6</ion-note>
+          </ion-item>
+          <ion-item>
+            <ion-label color="dark" position="floating" align="center">
+              confirma contraseña</ion-label>
+            <ion-input
+              formControlName="confirmaPassword"
+              type="text"
+            ></ion-input>
+            <ion-note slot="error" *ngIf="(password?.dirty || password?.touched) && password?.errors">Contraseña debe tener un largo mínimo de 6</ion-note>
+          </ion-item>
+        </form>
+        <ion-button color="dark" expand="block" (click)="register()">Aceptar</ion-button>
+      </ion-card-content>
+    </ion-card>
+    <ion-button color="warning" expand="block" [routerLink]="['/inicio']">Ir a inicio</ion-button>
+  </div>
+</ion-content>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--
+
 <ion-header>
   <ion-toolbar color="secondary">
     <ion-title>registro</ion-title>
@@ -39,3 +123,4 @@
   <br />
   <ion-button color="warning" [routerLink]="['/inicio']">Ir a inicio</ion-button>
 </ion-content>
+-->
