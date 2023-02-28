@@ -1,31 +1,26 @@
 <ion-header>
-  <div id="header">
-      <ion-title align="center">RegistrApp</ion-title>
-  </div>
+  <ion-toolbar class="toolbarlogo">
+    <ion-title Align="center">RegistrApp</ion-title>
+  </ion-toolbar>
 </ion-header>
 
-<ion-content >
-  <div >
-   
+<ion-content class="portada" fullscreen="true">
     <form [formGroup]="formularioFecha">
       
-      <ion-item  >
-        
-          <ion-button id="btn-gen" color="warning" (click)="fecha2()">Generar código con la fecha actual</ion-button>
-     
+          <ion-button expand="block" id="btn-gen" color="warning"  (click)="fecha2()">Generar código con la fecha actual</ion-button>
         <!--<ion-datetime formControlName="fecha" [(ngModel)]="qrdata"></ion-datetime>-->
-      </ion-item>
+      
     </form>
-  </div>
+    <ion-card >
+      <qrcode
+        [qrdata]="qrdata"
+        [width]="200"
+        [errorCorrectionLevel]="'M'"
+      ></qrcode>
+    </ion-card>
+</ion-content>
 
-  <ion-card align="center">
-    <qrcode
-      [qrdata]="qrdata"
-      [width]="200"
-      [errorCorrectionLevel]="'M'"
-    ></qrcode>
-  </ion-card>
-
+<ion-content>
   <ion-button
     id="btn-scan"
     expand="block"

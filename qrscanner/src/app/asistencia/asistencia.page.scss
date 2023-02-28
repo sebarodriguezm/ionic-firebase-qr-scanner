@@ -1,18 +1,17 @@
 ion-content{
   --ion-background-color: black;
-  display: flex;
   text-align: center;
-  
-  
+ 
+}
+
+.portada {
+  text-align: center;
 
 }
 
-#btn-gen{
-  margin-left: 62px;
-}
 
 #header{
-  height: 40%;
+  height: 60%;
   background: rgb(255, 68, 0);
   padding: 20px;
 }
@@ -33,10 +32,6 @@ ion-button{
 }
 
 ion-item{
-  display: flex !important;
-  justify-content: center !important;
-  align-items: center !important;
-  width: 100%;
   text-align: center;
 }
 
