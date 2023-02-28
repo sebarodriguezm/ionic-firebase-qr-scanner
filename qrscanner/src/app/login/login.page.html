@@ -22,7 +22,7 @@
         </ion-item>
         <ion-item>
           <ion-label color="light" position="floating" align="center">contraseña</ion-label>
-          <ion-input formControlName="password" type="text"></ion-input>
+          <ion-input formControlName="password" type="password"></ion-input>
           <ion-note slot="error" *ngIf="(password?.dirty || password?.touched) && password?.errors">Contraseña debe tener un largo mínimo de 6</ion-note>
         </ion-item>
       </form>
