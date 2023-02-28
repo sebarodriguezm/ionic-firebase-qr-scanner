@@ -69,7 +69,7 @@ export class InicioPage implements OnInit {
      let formattedDate = (moment(bien)).format('DD-MMMM-YYYY');
 this.formularioBusqueda.value.valor= formattedDate
 
-    const response = this.buscar(this.parametro, this.formularioBusqueda.value.valor);
+    
     console.log(this.formularioBusqueda.value.valor)}
     else{
       this.parametro = this.formularioBusqueda.value.parametro
