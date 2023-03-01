@@ -4,6 +4,7 @@ import { Firestore, collection, addDoc, collectionData, doc, deleteDoc, query, w
 import { Observable } from 'rxjs';
 
 
+
 //se crean interfaces para no usar objetos anonimos en el uso de los datos ya que no otorgan utilidad
 import { Asistencia, Asis } from '../interfaces/asistencia.interface';
 import { Fecha } from '../interfaces/asistencia.interface';
@@ -48,6 +49,10 @@ export class FirestoreService {
   
     logout(){
       return signOut(this.auth);
+    }
+
+    getCurrentUser() {
+      return this.auth.currentUser;
     }
 
     createFecha(fecha:Fecha ){
