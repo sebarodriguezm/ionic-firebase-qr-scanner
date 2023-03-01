@@ -51,6 +51,7 @@ ion-content{
 #card-lista{
     background-color: #65000B;
     padding-bottom: 10px;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.6);
 }
 
 ion-label{
@@ -72,4 +73,8 @@ ion-icon:hover {
 
 ion-button{
     padding-top: 15px;
+}
+
+ion-card{
+    box-shadow: 0 0 20px rgba(175, 0, 0, 0.6);
 }
