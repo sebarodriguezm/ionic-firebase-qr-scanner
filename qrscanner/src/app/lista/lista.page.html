@@ -29,23 +29,27 @@
 </ion-content>
 
 
-<ion-content align="center">
+<ion-content align="center" id="">
   
-  <form [formGroup]="formularioBusqueda">
-  <ion-list >
-    <ion-item >
-      <ion-select placeholder="¿como quieres buscar?" formControlName="parametro">
-        <ion-select-option color="light" value="nombre_alumno">nombre</ion-select-option>
-        <ion-select-option color="light" value="curso">curso</ion-select-option>
-        <ion-select-option color="light" value="fecha">fecha</ion-select-option>
-      </ion-select>
-     <ion-input color="dark" formControlName="valor" placeholder="buscar"></ion-input>
-    </ion-item>
-  </ion-list>
-
-</form>
-<ion-button color="warning" (click)="ingresarBusqueda()">Buscar</ion-button>
+ 
 <ion-card >
+  <div>
+  <form [formGroup]="formularioBusqueda">
+    <ion-list >
+      <ion-item >
+        <ion-select placeholder="¿como quieres buscar?" formControlName="parametro">
+          <ion-select-option color="light" value="nombre_alumno">nombre</ion-select-option>
+          <ion-select-option color="light" value="curso">curso</ion-select-option>
+          <ion-select-option color="light" value="fecha">fecha</ion-select-option>
+        </ion-select>
+       <ion-input color="dark" formControlName="valor" placeholder="buscar"></ion-input>
+      </ion-item>
+    </ion-list>
+  
+  </form>
+  <ion-button color="warning" (click)="ingresarBusqueda()">Buscar</ion-button>
+
+  </div>
 
   <ion-grid id="grid1">
     <ion-row class="row header">
