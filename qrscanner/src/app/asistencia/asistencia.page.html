@@ -2,6 +2,8 @@
   <ion-toolbar class="toolbarlogo">
     <ion-title Align="center">RegistrApp</ion-title>
   </ion-toolbar>
+  <ion-text color="light" (click)="logout()">Cerrar sesión</ion-text>
+
 </ion-header>
 
 <ion-content class="portada" fullscreen="true">
@@ -18,9 +20,11 @@
         [errorCorrectionLevel]="'M'"
       ></qrcode>
     </ion-card>
+  
 </ion-content>
 
 <ion-content>
+  
   <ion-button
     id="btn-scan"
     

@@ -142,4 +142,11 @@ this.formularioBusqueda.value.valor= formattedDate
     }
   }
 
+  logout() {
+    this.FirestoreService.logout()
+      .then(() => {
+        this.navCtrl.navigateRoot('/login');
+      });
+  }
+
 }
