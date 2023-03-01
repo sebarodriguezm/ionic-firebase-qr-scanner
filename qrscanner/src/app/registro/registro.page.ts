@@ -30,9 +30,10 @@ export class RegistroPage implements OnInit {
         Validators.required,
         Validators.minLength(2),
       ]),
+    }, {
+      validator: this.passwordMatchValidator('password', 'confirmaPassword')
     });
   }
-
   ngOnInit() {}
  
   get email(){
@@ -43,20 +44,37 @@ export class RegistroPage implements OnInit {
     return this.formularioRegistro.get('password');
   }
 
+  passwordMatchValidator(passwordKey: string, confirmPasswordKey: string) {
+    return (group: FormGroup) => {
+      const password = group.controls[passwordKey];
+      const confirmPassword = group.controls[confirmPasswordKey];
+      if (password.value !== confirmPassword.value) {
+        return confirmPassword.setErrors({ passwordMismatch: true });
+      }
+    };
+  }
+
+
     async register(){
       //loading genera el efecto de carga mientras se realiza un proceso, es una barra animmada
-      const loading = await this.loadingController.create();
-      await loading.present();
-      const user = await this.FirestoreService.register(this.formularioRegistro.value);
- 
+    const loading = await this.loadingController.create();
+    await loading.present();
+
+    if (this.formularioRegistro.invalid) {
       await loading.dismiss();
-  
-      if (user) {
-        this.router.navigateByUrl('/asistencia', { replaceUrl: true });
-      } else {
-        this.showAlert('Registro fallido', 'Intentalo de nuevo!');
-      }
+      this.showAlert('Registro fallido', 'Por favor completa los campos correctamente');
+      return;
     }
+
+    const user = await this.FirestoreService.register(this.formularioRegistro.value);
+    await loading.dismiss();
+  
+    if (user) {
+      this.router.navigateByUrl('/asistencia', { replaceUrl: true });
+    } else {
+      this.showAlert('Registro fallido', 'Intentalo de nuevo!');
+    }
+  }
 
    async showAlert(header: string, message: string) {
 		const alert = await this.alertController.create({
