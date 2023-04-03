@@ -58,24 +58,24 @@ export class InicioPage implements OnInit {
   }
 
   ingresarBusqueda(){
-     this.parametro = this.formularioBusqueda.value.parametro
-     this.valor = this.formularioBusqueda.value.valor
+    this.parametro = this.formularioBusqueda.value.parametro
+    this.valor = this.formularioBusqueda.value.valor
 
-     const bien = this.formularioBusqueda.value.valor
-     moment.locale('es');
-     if (this.condi == 'fecha'){
-
-     
-     let formattedDate = (moment(bien)).format('DD-MMMM-YYYY');
-this.formularioBusqueda.value.valor= formattedDate
+    const bien = this.formularioBusqueda.value.valor
+    moment.locale('es');
+    if (this.condi == 'fecha'){
 
     
-    console.log(this.formularioBusqueda.value.valor)}
-    else{
-      this.parametro = this.formularioBusqueda.value.parametro
-     this.valor = this.formularioBusqueda.value.valor
-     this.buscar(this.parametro, this.valor);
-    }
-  }
+    let formattedDate = (moment(bien)).format('DD-MMMM-YYYY');
+this.formularioBusqueda.value.valor= formattedDate
+
+   const response = this.buscar(this.parametro, this.formularioBusqueda.value.valor);
+   console.log(this.formularioBusqueda.value.valor)}
+   else{
+     this.parametro = this.formularioBusqueda.value.parametro
+    this.valor = this.formularioBusqueda.value.valor
+    this.buscar(this.parametro, this.valor);
+   }
+ }
 
 }
